@@ -35,4 +35,3 @@ do
 	cd $BASEDIR/client-configs
 	tar -chf $user/$user.tar $user/*
 done
-
