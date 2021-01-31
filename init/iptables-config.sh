@@ -6,7 +6,6 @@ SCRIPT=$(readlink -f $0)
 SCRIPTPATH=`dirname $SCRIPT`
 source $SCRIPTPATH/.const
 
-#BASEDIR=/opt/ovpn
 IPTABLESCONFIG=$BASEDIR/iptables.rules
 
 if [ ! -f $IPTABLESCONFIG ]; then
