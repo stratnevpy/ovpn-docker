@@ -8,5 +8,5 @@ else
 	EXPIRE=$3
 fi
 
-docker exec -it $VPN bin/make_user.sh $USERNAME $VPN $EXPIRE
+docker exec $VPN bin/make_user.sh $USERNAME $VPN $EXPIRE
 
