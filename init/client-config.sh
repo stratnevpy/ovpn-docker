@@ -5,8 +5,6 @@ SCRIPT=$(readlink -f $0)
 SCRIPTPATH=`dirname $SCRIPT`
 source $SCRIPTPATH/.const
 
-#ASEDIR=/opt/ovpn
-
 cd $BASEDIR
 if [ ! -d client-configs ]; then mkdir client-configs; fi
 if [ ! -f client-configs/base.conf ]; then
