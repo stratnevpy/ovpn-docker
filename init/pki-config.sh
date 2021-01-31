@@ -1,6 +1,4 @@
 #!/bin/bash
-#OCKFILE=.gen
-#VPN=uriit
 VPN=$1
 PORT=$2
 NET=$3
@@ -10,8 +8,6 @@ SCRIPT=$(readlink -f $0)
 SCRIPTPATH=`dirname $SCRIPT`
 source $SCRIPTPATH/.const
 
-#BASEDIR=/opt/ovpn
-#VPNDIR=/etc/openvpn
 EASYRSADIR=$BASEDIR/easy-rsa
 
 if [ ! -d $EASYRSADIR ]; then 
