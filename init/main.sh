@@ -8,8 +8,6 @@ SCRIPT=$(readlink -f $0)
 SCRIPTPATH=`dirname $SCRIPT`
 source $SCRIPTPATH/.const
 
-#VPNDIR=/etc/openvpn
-
 mkdir -p /dev/net
 if [ ! -c /dev/net/tun ]; then mknod /dev/net/tun c 10 200; fi
 
@@ -20,5 +18,3 @@ init/iptables-config.sh $NET $MASK
 init/logrotate-config.sh $VPN
 
 openvpn --config $VPNDIR/server.conf
-#echo " "
-
