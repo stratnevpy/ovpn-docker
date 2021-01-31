@@ -5,7 +5,6 @@ SCRIPT=$(readlink -f $0)
 SCRIPTPATH=`dirname $SCRIPT`
 source $SCRIPTPATH/.const
 
-#BASEDIR=/opt/ovpn
 echo "$BASEDIR/logs/$VPN.log {
   rotate 30
   daily
@@ -15,4 +14,3 @@ echo "$BASEDIR/logs/$VPN.log {
   notifempty
   create 0640 root root
 }" > /etc/logrotate.d/openvpn@$VPN
-
