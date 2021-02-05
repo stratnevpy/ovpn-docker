@@ -18,6 +18,10 @@ def parse_config_file(name)
 
   config_source = IO.read(config_path).split("\n")
 
+  if config_source.length == 0
+    return
+  end
+  
   config = config_source.inject([]) do |result,line|
     ip, protocol, port = line.split(/\s+/)
     result << {
