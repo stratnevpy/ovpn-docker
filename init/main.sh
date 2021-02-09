@@ -17,4 +17,5 @@ init/client-config.sh $PORT
 init/iptables-config.sh $NET $MASK
 init/logrotate-config.sh $VPN
 
+service cron start
 openvpn --config $VPNDIR/server.conf
