@@ -1,18 +1,11 @@
-FROM debian:10
+FROM debian:10.8
 MAINTAINER Pavel Stratnev
 WORKDIR /etc/openvpn
 
-COPY init/.const init/
-COPY init/main.sh init/
-COPY init/pki-config.sh init/
-COPY init/server-config.sh init/
-COPY init/client-config.sh init/
-COPY init/iptables-config.sh init/
-COPY init/logrotate-config.sh init/
-COPY init/permissions.rb bin/
-COPY init/make_user.sh bin/
-COPY init/revoke_user.sh bin/
-COPY init/update_crl.sh bin/
+COPY init .
+COPY bin .
+
+RUN chmod -R +x init bin
 
 RUN apt update && apt install wget gnupg tar cron logrotate iptables ruby python -y && \
     wget -O - https://swupdate.openvpn.net/repos/repo-public.gpg | apt-key add - && \
