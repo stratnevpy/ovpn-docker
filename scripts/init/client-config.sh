@@ -10,7 +10,7 @@ if [ ! -f client-configs/base.conf ]; then
 dev tun
 ;dev-node MyTap
 proto udp
-remote <ipaddress> $PORT
+remote $PUBLIC_IP $PORT
 ;remote-random
 resolv-retry infinite
 nobind

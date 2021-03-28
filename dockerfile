@@ -2,14 +2,17 @@ FROM debian:10.8
 MAINTAINER Pavel Stratnev
 WORKDIR /etc/openvpn
 
-COPY init .
-COPY bin .
+COPY scripts/init ./init
+COPY scripts/bin ./bin
+
+ENV PUBLIC_IP=192.168.1.2
 
 RUN chmod -R +x init bin
 
 RUN apt update && apt install -y \ 
         wget \
         gnupg \
+	cron \
         tar \
         iptables \
         ruby \
@@ -21,8 +24,8 @@ RUN wget -O - https://swupdate.openvpn.net/repos/repo-public.gpg | apt-key add -
 RUN apt update && apt install openvpn -y
 
 #- clean
-RUN apt remove --purge tar gnupg wget && apt autoremove
-RUN rm /tmp/Easy* /var/cache/apt/* -r
+RUN apt remove --purge -y gnupg wget && apt autoremove -y
+RUN rm /var/cache/apt/* -r
 
 EXPOSE 1194/udp
 

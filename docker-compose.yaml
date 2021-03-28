@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  server:
+    build:
+      context: .
+    image: ovpn
+    cap_add:
+      - NET_ADMIN
+    container_name: $VPN
+    restart: unless-stopped
+    environment:
+      - PUBLIC_IP=${PUBLIC_IP}
+    ports:
+      - ${PORT}:1194/udp
+    volumes:
+      - ${VOLUME}${VPN}:/opt/ovpn
+      - /etc/localtime:/etc/localtime:ro
+    command: '${VPN} ${PORT} ${NET} ${MASK}'

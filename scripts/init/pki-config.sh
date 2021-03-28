@@ -5,11 +5,13 @@ NET=$3
 MASK=$4
 LOCKFILE=.gen
 BASEDIR=/opt/ovpn
+VPNDIR=/etc/openvpn
 EASYRSADIR=$BASEDIR/easy-rsa
 
 if [ ! -d $EASYRSADIR ]; then 
 	mkdir $EASYRSADIR
 	cp -r /tmp/Easy*/* $EASYRSADIR
+	rm -r /tmp/Easy*
 fi
 
 cd $BASEDIR
