@@ -12,7 +12,7 @@ init/pki-config.sh $VPN $PORT $NET $MASK
 init/server-config.sh $VPN $NET $MASK
 init/client-config.sh $PORT
 init/iptables-config.sh $NET $MASK
-#init/logrotate-config.sh $VPN
+init/logrotate-config.sh $VPN
 
 service cron start
 openvpn --config $VPNDIR/server.conf
