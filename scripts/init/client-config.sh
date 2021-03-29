@@ -1,9 +1,6 @@
 #!/bin/bash
 PORT=$1
-
-SCRIPT=$(readlink -f $0)
-SCRIPTPATH=`dirname $SCRIPT`
-source $SCRIPTPATH/.const
+BASEDIR=/opt/ovpn
 
 cd $BASEDIR
 if [ ! -d client-configs ]; then mkdir client-configs; fi
@@ -13,7 +10,7 @@ if [ ! -f client-configs/base.conf ]; then
 dev tun
 ;dev-node MyTap
 proto udp
-remote <ipaddress> $PORT
+remote $PUBLIC_IP $PORT
 ;remote-random
 resolv-retry infinite
 nobind

@@ -2,10 +2,8 @@
 VPN=$1
 NET=$2
 MASK=$3
-
-SCRIPT=$(readlink -f $0)
-SCRIPTPATH=`dirname $SCRIPT`
-source $SCRIPTPATH/.const
+BASEDIR=/opt/ovpn
+VPNDIR=/etc/openvpn
 
 cd $BASEDIR
 if [ ! -d logs ]; then mkdir logs; fi

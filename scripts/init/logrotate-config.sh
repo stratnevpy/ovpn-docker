@@ -1,9 +1,6 @@
 #!/bin/bash
 VPN=$1
-
-SCRIPT=$(readlink -f $0)
-SCRIPTPATH=`dirname $SCRIPT`
-source $SCRIPTPATH/.const
+BASEDIR=/opt/ovpn
 
 echo "$BASEDIR/logs/$VPN.log {
   rotate 30
