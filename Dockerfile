@@ -5,7 +5,7 @@ WORKDIR /etc/openvpn
 COPY scripts/init ./init
 COPY scripts/bin ./bin
 
-ENV PUBLIC_IP=192.168.1.2
+ENV PUBLIC_IP=<ip-address>
 
 RUN chmod -R +x init bin
 
