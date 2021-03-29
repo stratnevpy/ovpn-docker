@@ -13,6 +13,7 @@ RUN apt update && apt install -y \
         wget \
         gnupg \
 	cron \
+	logrotate \
         tar \
         iptables \
         ruby \
